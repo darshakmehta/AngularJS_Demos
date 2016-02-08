@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en" data-ng-app>
+<head>
+	<meta charset="utf-8">
+	<title>AngulasJS Demo3</title>
+	<script src ="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
+	<script>
+		function nameController($scope){
+			$scope.firstname = 'John';
+			$scope.lastname = 'Smith';
+		}
+	</script>
+</head>
+<body data-ng-controller = "nameController">
+First Name : <input type = "text" data-ng-model="firstname"></input> 
+<br />
+<br />
+Last Name : <input type = "text" data-ng-model="lastname"></input> 
+<br />
+<br />
+Hello {{ firstname }} {{lastname}}
+
+</body>
+</html>
