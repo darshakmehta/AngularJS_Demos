@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en" data-ng-app="myapp">
+<head>
+	<meta charset="utf-8">
+	<title>AngulasJS Demo6</title>
+	<script src ="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
+	<script>
+	var myApp = angular.module('myapp',[]);
+	myApp.controller('nameController',function($scope){
+		$scope.firstName = 'John';
+
+		$scope.$watch('lastName',function(newValue,oldValue){ //'lastname' is the value function and second parameter is the listener function
+			console.log('newValue is '+newValue);
+		});
+
+		setTimeout(function(){  //angularJS has its own setTimeout function to make sure of the $digest.
+			$scope.lastName ='Smith';
+			$scope.$apply();					//tells angular that the variables are been updated and thus apply all the digests.
+		},2000);
+		
+	});
+	</script>
+</head>
+<body data-ng-controller = "nameController">
+
+	<body data-ng-controller = "nameController">
+First Name : <input type = "text" data-ng-model="firstName"></input> 
+<br />
+<br />
+Last Name : <input type = "text" data-ng-model="lastName"></input> 
+<br />
+<br />
+Hello {{ firstName }} {{lastName}}
+
+
+</body>
+</html>
