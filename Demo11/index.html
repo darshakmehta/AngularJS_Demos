@@ -1,0 +1,30 @@
+<!-- Dependency injection syntax for minification -->
+<!doctype html>
+<html lang="en" data-ng-app="myapp">
+<head>
+	<meta charset="utf-8">
+	<title>AngulasJS Demo11</title>
+	<script src ="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
+	<script>
+	var countryApp = angular.module('myapp',[]);
+	countryApp.controller('countryController',['$scope','$http',function(s,h){ // Minification is used in large production apps where you define second parameter as a array therefore you can use any name variables in the function instead of scope and http.
+		h.get('countries.json').success(function(data){ 
+			s.countries =data;
+		});
+	}]);
+	</script>
+</head>
+<body data-ng-controller = "countryController">
+
+	<table>
+		<tr>
+			<th> Country</th>
+			<th>Population</th>
+		</tr>
+		<tr ng-repeat = "country in countries">
+			<td>{{country.name}}</td>
+			<td>{{country.population}}</td>
+		</tr>
+</table>
+</body>
+</html>
