@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en" data-ng-app="myapp">
+<head>
+	<meta charset="utf-8">
+	<title>AngulasJS Demo5</title>
+	<script src ="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
+	<script>
+	var myapp = angular.module('myapp',[]);
+	myapp.controller('nameController',function($scope){
+		$scope.names = ['Darshak','Chandresh','Mehta'];
+		
+	});
+	</script>
+</head>
+<body data-ng-controller = "nameController">
+<ul>
+	<li ng-repeat = "name in names">{{name}}</li>
+</ul>
+
+</body>
+</html>
