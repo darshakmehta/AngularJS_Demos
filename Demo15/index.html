@@ -1,0 +1,33 @@
+
+<!doctype html>
+<html lang="en" data-ng-app="myapp">
+<head>
+	<meta charset="utf-8">
+	<title>AngulasJS Demo15</title>
+	<script src ="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
+	<script>
+	var countryApp = angular.module('myapp',[]);
+	countryApp.controller('countryController',function($scope,$http){ 
+		$http.get('countries.json').success(function(data){ 
+			$scope.countries =data;
+		});
+		$scope.sortField = 'population';
+		$scope.reverse = true;
+	});
+	</script>
+</head>
+<body data-ng-controller = "countryController">
+	Search: <input data-ng-model ="query" type="text" />
+	<table>
+		<tr>
+			<th a href="" data-ng-click="sortField= 'name' ;reverse=!reverse"> Country</th>
+			<th a href="" data-ng-click="sortField='population';reverse=!reverse">Population</th>
+		</tr>
+		<tr data-ng-repeat = "country in countries | filter:query | orderBy:sortField:reverse">
+			
+			<td>{{country.name}}</td>
+			<td>{{country.population}}</td>
+		</tr>
+</table>
+</body>
+</html>
