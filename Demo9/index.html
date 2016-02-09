@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en" data-ng-app="myapp">
+<head>
+	<meta charset="utf-8">
+	<title>AngulasJS Demo9</title>
+	<script src ="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
+	<script>
+	var countryApp = angular.module('myapp',[]);
+	countryApp.controller('countryController',function($scope){
+		$scope.countries = [
+		
+			{"name":"China","population": 13721938719},
+			{"name":"India","population": 137219387},
+			{"name":"USA","population": 13721938}
+
+		];
+		
+	});
+	</script>
+</head>
+<body data-ng-controller = "countryController">
+<ul>
+	<li ng-repeat = "country in countries">
+		{{country.name}} - population {{country.population}}		
+	</li>
+
+</ul>
+
+
+
+</body>
+</html>
